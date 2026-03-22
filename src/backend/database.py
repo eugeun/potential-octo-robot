@@ -41,7 +41,8 @@ initial_activities = {
             "end_time": "16:45"
         },
         "max_participants": 12,
-        "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
+        "participants": ["michael@mergington.edu", "daniel@mergington.edu"],
+        "difficulty": "Beginner"
     },
     "Programming Class": {
         "description": "Learn programming fundamentals and build software projects",
@@ -171,7 +172,7 @@ initial_activities = {
         },
         "max_participants": 16,
         "participants": ["william@mergington.edu", "jacob@mergington.edu"],
-        "difficulty": "Intermediate"
+        "difficulty": "Advanced"
     }
 }
 

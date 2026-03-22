@@ -394,6 +394,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
+      // Handle difficulty filter
+      if (currentDifficulty) {
+        queryParams.push(`difficulty=${encodeURIComponent(currentDifficulty)}`);
+      }
+
       const queryString =
         queryParams.length > 0 ? `?${queryParams.join("&")}` : "";
       const response = await fetch(`/activities${queryString}`);
@@ -435,15 +440,6 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (!isWeekendActivity) {
-          return;
-        }
-      }
-
-      // Apply difficulty filter if selected
-      if (currentDifficulty) {
-        // Activities without a difficulty are for all levels, so always include them.
-        // Activities with a difficulty must match the selected level.
-        if (details.difficulty && details.difficulty !== currentDifficulty) {
           return;
         }
       }
@@ -659,9 +655,9 @@ document.addEventListener("DOMContentLoaded", () => {
       difficultyFilters.forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
 
-      // Update current difficulty filter and display filtered activities
+      // Update current difficulty filter and fetch activities
       currentDifficulty = button.dataset.difficulty;
-      displayFilteredActivities();
+      fetchActivities();
     });
   });
 
